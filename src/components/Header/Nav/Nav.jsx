@@ -6,27 +6,35 @@ import HomePage from '../../../pages/HomePage';
 const Nav = () => {
 
   return (
-    <nav class="container-fluid m-1 navbar navbar-expand-xl navbar-light bg-light row row-cols-2">
 
-      <ul class="navbar-nav  mb-xl-0 row row-cols-1">
-        <li class="nav-item  p-0 col">
-          <a class="nav-link active " aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item p-0 col">
-          <a class="nav-link " href="#">Link</a>
-        </li>
-      </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
 
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+    <nav className="navbar" role="navigation">
+      <div className="navbar-header ">
+        <Link to="/"><span className="glyphicon glyphicon-edit" /> Home </Link>
+        <Link to="/?id"><span className="glyphicon glyphicon-edit" /> Aleatorio </Link>
+      </div>
 
-      <Link to="/">
-        <button class="btn btn-outline-success">Home</button>
-      </Link>
+      <div className="col-sm-3 col-md-3 ">
+        <div className="ui-widget">
+          <form id="custom-search-form" className="navbar-form" role="search" action="search" method="post">
+            <div className="input-group">
+              <input type="text" name="search" id="search" className="form-control" placeholder="Search" />
 
-    </nav>
+              <div className="input-group-btn">
+                <button className="btn" type="submit"><i className="glyphicon glyphicon-search"></i></button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div>
+        <ul className="nav navbar-nav navbar-right">
+          <li><Link to="/"><span className="glyphicon glyphicon-edit" /> Log In </Link></li>
+          <li><Link to="/"><span className="glyphicon glyphicon-edit" /> Log Out </Link></li>
+        </ul>
+      </div>
+    </nav >
 
   )
 }

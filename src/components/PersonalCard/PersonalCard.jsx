@@ -1,33 +1,29 @@
 import './PersonalCard.css'
+import { Link } from "react-router-dom";
 
-const PersonalCard = ({ title, publisher, release_date, thumbnail }) => {
+const PersonalCard = ({ title, short_description, thumbnail, id }) => {
   return (
-    <div>
-      <div className='boxes'>
-        <div>
-          <img
-            src={thumbnail}
-            alt={title}
-          ></img>
-          <div id="card-body" className="card-body row text-center">
-            <p className="card-text font-weight-bold h4">{title} ({release_date})</p>
-            <div className="card-bottom m-2">
-              <div className="btn items-center m-0">
-                <button type="button" className="btn btn-outline-secondary btn-lg" onClick={(e, i) => props.onClick(e, props.imdbID)}>Detalles</button>
+
+    <section>
+      <div className="container">
+        <div className="row">
+          <div className="col-sm-10 col-md-12 col-lg-12">
+            <div className="card hoverable text-center">
+
+              <img className="img-fluid text-center" src={thumbnail} alt="Card image cap" />
+              <div className="card-body">
+                <Link to={`/character/${id}`}>
+                  <a className="card-title" />{title}</Link>
               </div>
             </div>
           </div>
         </div>
       </div>
+    </section>
 
-      <div>
-
-      </div>
-    </div>
   )
 }
 
 export default PersonalCard
 
-// y boton
-// <a href="#" class="btn btn-primary">Go somewhere</a>
+
