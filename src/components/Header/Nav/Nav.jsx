@@ -3,11 +3,9 @@ import { Link } from "react-router-dom";
 import './Nav.css';
 import HomePage from '../../../pages/HomePage';
 
-const Nav = () => {
+const Nav = ({ filter, setFilter }) => {
 
   return (
-
-
     <nav className="navbar" role="navigation">
       <div className="navbar-header ">
         <Link to="/"><span className="glyphicon glyphicon-edit" /> Home </Link>
@@ -18,7 +16,9 @@ const Nav = () => {
         <div className="ui-widget">
           <form id="custom-search-form" className="navbar-form" role="search" action="search" method="post">
             <div className="input-group">
-              <input type="text" name="search" id="search" className="form-control" placeholder="Search" />
+              <input type="text" name="search" id="search" className="form-control" placeholder="Search"
+                onChange={(event) => setFilter(event.target.value)}
+              />
 
               <div className="input-group-btn">
                 <button className="btn" type="submit"><i className="glyphicon glyphicon-search"></i></button>

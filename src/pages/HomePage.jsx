@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react'
 
-import Header from '../components/Header/Header'
+import Header from '../components/Header/Header.jsx'
 
 //Components
-import PersonalCard from '../components/PersonalCard/PersonalCard'
+import PersonalCard from '../components/PersonalCard/PersonalCard.jsx'
 
 export default function HomePage() {
   const [games, setGames] = useState([])
+  const [filter, setFilter] = useState('')
 
   const options = {
     method: 'GET',
@@ -22,20 +23,30 @@ export default function HomePage() {
       .catch(err => console.error(err));
   }, [])
 
+  console.log(filter)
+  console.log(games)
+
   return (
     <>
-      <Header />
-      <section className='container'>
-        {
-          games.length === 0 ?
-            <h1>No hay juegos</h1>
-            :
-            <div className='wrapper '>
-              {
-                games.map(games => <PersonalCard className='card' key={games.id} title={games.title} publisher={games.publisher} release_date={games.release_date} thumbnail={games.thumbnail} id={games.id} />)
-              }
-            </div>
-        }
+      <section>
+        <Header filter={filter} setFilter={setFilter} />
+        <div>
+          {
+            games.length === 0 ?
+              <h1>No hay juegos</h1>
+              :
+              <div className='wrapper'>
+                {
+                  games
+                    .filter(game => game.title.toLowerCase().includes(filter.toLowerCase()))
+                    .map(games => (
+                      <PersonalCard className='card' key={games.id} title={games.title} publisher={games.publisher} release_date={games.release_date} thumbnail={games.thumbnail} id={games.id} />
+                    )
+                    )
+                }
+              </div>
+          }
+        </div>
       </section>
     </>
   )

@@ -1,6 +1,6 @@
 import './Character.css'
 import { Link, useParams } from "react-router-dom";
-import Header from '../Header/Header'
+import Header from '../../components/Header/Header'
 
 import { useState, useEffect } from 'react'
 
@@ -32,18 +32,17 @@ const Character = () => {
       <Header />
 
       <section>
-        <div className="container">
-          <div className="card-body m-2 text-center">
 
-            <img className="img-fluid p-3  " src={game?.thumbnail} alt="Card image cap" />
-            <div className="card-body">
-              <Link to="/">
-                <a className="card-title" />{game?.title}</Link>
-              <p className="card-text">{game?.short_description}</p>
-              <p className="card-text">{game?.developer}</p>
+        <div className="card-body text-center">
 
-            </div>
+          <h4 className="mytext1">{game?.title} </h4>
+          <img className="img-fluid" src={game?.thumbnail} alt="Card image cap" />
+
+          <div classname=" container " >
+            <p className="mytext2">{game?.short_description}</p>
+            <p className="mytext3">{game?.developer}</p>
           </div>
+
         </div>
       </section>
 

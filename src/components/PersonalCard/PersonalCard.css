@@ -2,11 +2,13 @@
   background-color: #f0f0f0;
 }
 .card .card-title {
-  color: #7c9c37;
+  color: #3772cc;
 }
 .card .card-text {
   font-size: 14px;
   border: none;
+  padding: 0.5rem;
+  margin: 0;
 }
 
 .wrapper {

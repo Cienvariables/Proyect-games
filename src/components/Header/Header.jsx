@@ -5,11 +5,9 @@ import Nav from "./Nav/Nav";
 
 // const myfirstProps = 'Del hijo al padre';
 // Una cons para buscar Title
-const Header = () => {
+const Header = ({ filter, setFilter }) => {
   return (
-    <div>
-      <Nav />
-    </div>
+    <Nav filter={filter} setFilter={setFilter} />
   )
 }
 
