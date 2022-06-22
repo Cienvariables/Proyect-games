@@ -1,7 +1,6 @@
 import './Character.css'
 import { Link, useParams } from "react-router-dom";
 import Header from '../../components/Header/Header'
-
 import { useState, useEffect } from 'react'
 
 
@@ -24,7 +23,7 @@ const Character = () => {
       .then(response => response.json())
       .then(jsonRes => setGame(jsonRes))
       .catch(err => console.error(err));
-  }, [])
+  }, [id])
 
 
   return (

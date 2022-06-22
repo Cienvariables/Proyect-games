@@ -1,7 +1,5 @@
-import { useState, useEffect } from 'react'
-
 import Header from '../components/Header/Header.jsx'
-
+import { useState, useEffect } from 'react'
 //Components
 import PersonalCard from '../components/PersonalCard/PersonalCard.jsx'
 
@@ -22,9 +20,6 @@ export default function HomePage() {
       .then(jsonRes => setGames(jsonRes))
       .catch(err => console.error(err));
   }, [])
-
-  console.log(filter)
-  console.log(games)
 
   return (
     <>
@@ -51,4 +46,3 @@ export default function HomePage() {
     </>
   )
 }
-
